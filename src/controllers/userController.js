@@ -15,8 +15,8 @@ const userController = {
         try {
             fetch(`https://pokeapi.co/api/v2/pokemon/${req.params.name}`)
                 .then(response => response.json())
-                .then(data => {
-                    res.render("pokemonDetail", { data });
+                .then(pokemon => {
+                    res.render("pokemonDetail", { pokemon });
                 })
         } catch (error) {
             res.render("error");
