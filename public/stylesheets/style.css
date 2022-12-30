@@ -4,3 +4,21 @@
 #c-body h3{
   text-align: center;
 }
+
+.mt-n1 {
+  margin-top: -0.25rem !important;
+}
+
+.form-control::placeholder {
+  color: white;
+}
+
+.img-navbar {
+  width: 45px;
+}
+
+/* POKEMON DETAIL  STYLES*/
+
+.detail-img {
+  width: 300px;
+}

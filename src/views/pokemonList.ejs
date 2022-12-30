@@ -1,11 +1,12 @@
 <!DOCTYPE html>
 <html lang="en">
-<%- include("partials/head.ejs") %>
+<%- include("./partials/head") %>
 <body class="bg-light">
     <header>
-        <%- include("partials/navbar.ejs") %> 
+        <%- include("./partials/navbar") %>
+        <hr> 
     </header>
-    <main class="container mt-3 bg-light">
+    <main class="container bg-light mt-5">
         <h5 class="text-end badge bg-primary text-wrap">Total pokemons: <%= data.count %></h5>
         <section class="row">
             <% for (let i = 0; i < data.results.length; i++) { %>
