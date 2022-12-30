@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<%- include("partials/head.ejs") %>
+<body>
+    <main>
+        <section>
+            <div>
+                <img src="<%= pokemon.sprites.front_default %>" alt="<%= pokemon.species.name %>">
+                <img src="<%= pokemon.sprites.back_default %>" alt="<%= pokemon.species.name %>">
+                <h2><%= pokemon.species.name %></h2>
+                <ul>
+                    <% for (let i = 0;i < pokemon.abilities.length; i++) { %>
+                        <li><%= pokemon.abilities[i].ability.name %></li>
+                    <% } %>  
+                </ul> 
+                <div>
+                    <h3>Pokemon type</h3>
+                    <% for (let i = 0;i < pokemon.types.length; i++) { %>
+                        <span><%= pokemon.types[i].type.name %></span>
+                    <% } %> 
+                </div>
+                <tr>
+                    <th>base exp</th>
+                    <tr><%= pokemon.base_experience %></tr>
+                </tr>
+                <% for (let i = 0;i < pokemon.stats.length; i++) { %>
+                    <table>
+                            <tbody>
+                                <tr>
+                                    <th><%= pokemon.stats[i].stat.name %></th>
+                                    <td><%= pokemon.stats[i].base_stat %></td>
+                                    <td><progress value="<%= pokemon.stats[i].base_stat %>" max="120"></progress></td> 
+                                </tr>
+                            </tbody>      
+                    </table> 
+                <% } %>
+                <h3>Game indices</h3> 
+                <div>
+                    <% for (let i = 0;i < pokemon.game_indices.length; i++) { %>
+                        <div>
+                            <span><%= pokemon.game_indices[i].version.name %>:</span>
+                            <span><%= pokemon.game_indices[i].game_index %></span>
+                        </div>
+                    <% } %>
+                </div>
+            </div>
+        </section>
+    </main>
+</body>
+</html>

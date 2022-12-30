@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="en">
+<%- include("partials/head.ejs") %>
+<body>
+    <main>
+        <h2>Total pokemons: <%= data.count %></h2>
+        <section class="container">
+            <% for (let i = 0; i < data.results.length; i++) { %>
+                <div class="card">
+                    <h2><%= data.results[i].name %> <%= i+1 %></h2>
+                    <img src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/<%= i+1 %>.png" alt="">
+                    <a href="/users/pokemonDetail/<%= data.results[i].name %>">Detail</a>
+                </div>
+            <% } %>    
+        </section>
+    </main>
+</body>
+</html>
