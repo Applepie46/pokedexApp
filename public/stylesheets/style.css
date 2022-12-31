@@ -1,8 +1,32 @@
-body {
-  padding: 50px;
-  font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+
+/* POKEDEX STYLES */
+
+#c-body h3{
+  text-align: center;
 }
 
-a {
-  color: #00B7FF;
+.mt-n1 {
+  margin-top: -0.25rem !important;
+}
+
+.form-control::placeholder {
+  color: white;
+}
+
+.img-navbar {
+  width: 45px;
+}
+
+/* POKEMON DETAIL  STYLES*/
+
+.detail-img {
+  width: 400px;
+}
+
+.div-table-parent {
+  width: 38.4%;
+}
+
+.table-th {
+  width: 170px;
 }
