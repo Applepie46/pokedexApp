@@ -1,6 +1,6 @@
-const userController = {
+ const userController = {
     getAllPokemons: (req, res) => {
-        try {
+        try {
             fetch("https://pokeapi.co/api/v2/pokemon?limit=1154&offset=0")
                 .then(response => response.json())
                 .then(data => {
