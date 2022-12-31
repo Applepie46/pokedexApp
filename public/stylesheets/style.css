@@ -20,5 +20,13 @@
 /* POKEMON DETAIL  STYLES*/
 
 .detail-img {
-  width: 300px;
+  width: 400px;
+}
+
+.div-table-parent {
+  width: 38.4%;
+}
+
+.table-th {
+  width: 170px;
 }
