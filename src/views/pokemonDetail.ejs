@@ -14,12 +14,29 @@
                 </h1>
                 <div class="d-flex flex-wrap w-100">
                     <div class="d-flex flex-column align-items-center flex-grow-1">
-                        <img class="detail-img" src="<%= pokemon.sprites.front_default %>"
+                        <% if (pokemon.sprites.front_default) { %>
+                            <img class="detail-img mw-100" src="<%= pokemon.sprites.front_default %>"
                             alt="<%= pokemon.species.name %>">
-                        <img class="detail-img" src="<%= pokemon.sprites.back_default %>"
+                        <% } else { %>
+                            <div>
+                                <h3 class="text-center text-muted display-1">
+                                    Sorry we don´t have the front image of this pokemon yet
+                                </h3>
+                            </div>
+                        <% } %>
+                        
+                        <% if (pokemon.sprites.back_default) { %>
+                            <img class="detail-img mw-100" src="<%= pokemon.sprites.back_default %>"
                             alt="<%= pokemon.species.name %>">
+                        <% } else { %>
+                            <div class="p-5 h-100 text-center">
+                                <h7 class="text-center text-muted">
+                                    Sorry we don´t have the back image of this pokemon yet
+                                </h7>
+                            </div>
+                        <% } %>        
                     </div>
-                    <div class="d-flex flex-column p-2 flex-grow-">
+                    <div class="d-flex flex-column p-2 flex-grow-5">
                         <div class="h-auto w-100">
                             <h3 class="text-center">Pokedex data</h3>
                             <table class="table">
@@ -78,7 +95,7 @@
                                                 </span>
                                             <% } else { %>
                                                 <span>
-                                                    <%= species.habitat %>
+                                                    <%= species.habitat.name %>
                                                 </span>
                                             <% } %>    
                                         </td>
@@ -143,13 +160,17 @@
                                     <tr class="border-botton">
                                         <th class="table-th">Base exp</th>
                                         <td>
-                                            <span>
+                                            
                                                 <% if (pokemon.base_experience == null) { %>
-                                                    oops aun no tenemos esta info
+                                                    <span>
+                                                        Oops no info yet
+                                                    </span>
                                                 <% } else { %> 
-                                                    <%= pokemon.base_experience %>
+                                                    <span>
+                                                        <%= pokemon.base_experience %>
+                                                    </span>
                                                 <% } %>  
-                                            </span>
+                                            
                                         </td>
                                     </tr>
                                     <tr>
