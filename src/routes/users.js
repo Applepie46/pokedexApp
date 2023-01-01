@@ -4,6 +4,6 @@ const userController = require("../controllers/userController");
 
 /* GET users listing. */
 router.get('/pokedex', userController.getAllPokemons);
-router.get("/pokemonDetail/:name", userController.pokemonDetail);
+router.get("/pokemonDetail/:id", userController.pokemonDetail);
 
 module.exports = router;

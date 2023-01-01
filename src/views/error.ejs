@@ -1,6 +1,15 @@
-extends layout
 
-block content
-  h1= message
-  h2= error.status
-  pre #{error.stack}
+<!DOCTYPE html>
+<html lang="en">
+<%- include("./partials/head") %>
+<body>
+  <header>
+    <%- include("./partials/navbar") %>
+    <hr> 
+  </header>
+  <main>
+    <p><%= error %></p>
+  </main>
+  
+</body>
+</html>
