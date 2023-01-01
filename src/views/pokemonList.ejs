@@ -7,7 +7,7 @@
         <hr> 
     </header>
     <main class="container bg-light mt-5">
-        <h5 class="text-end badge bg-primary text-wrap">Total pokemons: <%= data.count %></h5>
+        <h5 class="text-end badge bg-primary text-wrap">Total pokemons: <%= data.results.length %></h5>
         <section class="row">
             <% for (let i = 0; i < data.results.length; i++) { %>
                 <% let pokemonIndex = i+1; %>
@@ -16,7 +16,7 @@
                     <div class="card-body p-2 card border-danger" id="c-body">
                         <h3 class="text-center"><%= data.results[i].name %> </h3>
                         <p class="text-center">#<%= i+1 %></p>
-                        <a class="btn btn-outline-danger w-100" href="/users/pokemonDetail/<%= pokemonIndex %>">Detail</a>
+                        <a class="btn btn-outline-danger w-100" href="/pokemonDetail/<%= pokemonIndex %>">Detail</a>
                     </div>
                 </div>
             <% } %>    
