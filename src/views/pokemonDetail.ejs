@@ -8,12 +8,14 @@
                 <%- include("./partials/navbar") %>
                     <hr>
             </header>
-            <section class="container mt-5">
-                <h1 class="text-center">
-                    <%= pokemon.name %>
-                </h1>
-                <div class="d-flex flex-wrap w-100">
+            <section class="container mt-5 sectionCss">
+                <div class="d-flex flex-wrap w-100 section-div-1">
                     <div class="d-flex flex-column align-items-center flex-grow-1">
+                        <div>
+                            <h1 class="text-center display-1">
+                                <%= pokemon.name %>
+                            </h1>
+                        </div>
                         <% if (pokemon.sprites.front_default) { %>
                             <img class="detail-img mw-100" src="<%= pokemon.sprites.front_default %>"
                             alt="<%= pokemon.species.name %>">

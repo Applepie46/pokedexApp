@@ -1,4 +1,8 @@
+/* NAVBAR STYLES */
 
+.headerCss {
+  margin-bottom: 80px;
+}
 /* POKEDEX STYLES */
 
 #c-body h3{
@@ -18,6 +22,10 @@
 }
 
 /* POKEMON DETAIL  STYLES*/
+
+.section-div-1 {
+  margin-top: 100px;
+}
 
 .detail-img {
   width: 400px;
