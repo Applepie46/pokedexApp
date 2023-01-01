@@ -1,4 +1,4 @@
- const userController = {
+ const pokemonController = {
     getAllPokemons: async (req, res) => {
         try {
             fetch("https://pokeapi.co/api/v2/pokemon?limit=719&offset=0")
@@ -29,4 +29,4 @@
     }
 }
 
-module.exports = userController;
+module.exports = pokemonController;
