@@ -1,3 +1,5 @@
+ const getPokemons = require("../helpers/getPokemons");
+ 
  const pokemonController = {
     getAllPokemons: async (req, res) => {
         try {
@@ -25,6 +27,16 @@
             console.log(error);
             res.render("error", { error });
             
+        }
+    },
+    searchPokemons: async (req, res) => {
+        try {
+            await getPokemons("https://pokeapi.co/api/v2/pokemon?limit=719&offset=0")
+            .then(pokemons =>
+                console.log(pokemons))
+        }catch(error) {
+            res.render(error);
+            console.log(error);
         }
     }
 }
