@@ -8,7 +8,7 @@ THEN WE CALL THIS FUNCTION INTO THE POKEMON CONTROLLER WHERE IT CAN GETS SHOOT B
 
 const getPokemons = async (url) => {
     try {
-        let pokemons = [];
+    let pokemons = [];
     const resp = await fetch(url);
     const data =  await resp.json();
     const pokemonsArray = data.results;
