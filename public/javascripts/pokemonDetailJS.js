@@ -1,12 +1,9 @@
 document.addEventListener("DOMContentLoaded", () => {
-    const typesSpan = document.querySelector(".typesSpan");
     const tdTypes = document.querySelector(".tdTypes");
     let children = tdTypes.children;
-    console.log(children);
-    const typesArray = ["normal", "fighting", "flying", "poison", "ground", "rock", "bug", "ghost", 
-    "steel", "fire", "water", "grass", "electric", "pyschic", "ice", "dragon", "dark", "fairy"];
+    const thStats = document.querySelector(".th-stats");
+    const thChildren = thStats.children;
     
-
     for (let i = 0; i < children.length; i++) {
         if (children[i].textContent.trim() == "normal") {
             children[i].classList.add("badge", "text-uppercase", "normal");
@@ -34,8 +31,8 @@ document.addEventListener("DOMContentLoaded", () => {
             children[i].classList.add("badge", "text-uppercase", "grass");
         } else if (children[i].textContent.trim() == "electric") {
             children[i].classList.add("badge", "text-uppercase", "electric");
-        } else if (children[i].textContent.trim() == "pyschic") {
-            children[i].classList.add("badge", "text-uppercase", "pyschic");
+        } else if (children[i].textContent.trim() == "psychic") {
+            children[i].classList.add("badge", "text-uppercase", "psychic");
         } else if (children[i].textContent.trim() == "ice") {
             children[i].classList.add("badge", "text-uppercase", "ice");
         } else if (children[i].textContent.trim() == "dragon") {
@@ -48,6 +45,10 @@ document.addEventListener("DOMContentLoaded", () => {
             children[i].textContent = "???";
         }
     }
+
+    
+
+
 
 
     /*Array.from(tdTypes.elements).forEach(element => {
