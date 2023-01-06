@@ -53,9 +53,9 @@
                                     </tr>
                                     <tr>
                                         <th>Type</th>
-                                        <td>
+                                        <td class="tdTypes">
                                             <% for (let i=0;i < pokemon.types.length; i++) { %>
-                                                <span>
+                                                <span class="typesSpan">
                                                     <%= pokemon.types[i].type.name %>
                                                 </span>
                                                 <% } %>
@@ -107,7 +107,7 @@
                                         <td>
                                             <% if (species.is_legendary == true) { %>
                                                 <span>
-                                                    Si
+                                                    Yes
                                                 </span>
                                             <% } else { %>
                                                 <span>
@@ -121,7 +121,7 @@
                                         <td>
                                             <% if (species.is_mythical == true) { %>
                                                 <span>
-                                                    Si
+                                                    Yes
                                                 </span>
                                             <% } else { %>
                                                 <span>
@@ -139,8 +139,10 @@
                                 <table class="table">
                                     <tbody>
                                         <tr>
-                                            <th class="text-right table-th">
-                                                <%= pokemon.stats[i].stat.name %>
+                                            <th class="text-right table-th th-stats">
+                                                <span>
+                                                    <%= pokemon.stats[i].stat.name %>
+                                                </span>
                                             </th>
                                             <td>
                                                 <%= pokemon.stats[i].base_stat %>
@@ -228,7 +230,7 @@
                                         <td>
                                             <% if (species.form_switchable == true) { %>
                                                 <span>
-                                                    Si
+                                                    Yes
                                                 </span>
                                             <% } else { %>
                                                 <span>
@@ -255,9 +257,7 @@
                                 <% factsArray.slice(0, 3).forEach(text => { %>
                                     <p><i class="fa-solid fa-arrow-right"></i> <%= text %></p>
                                 <% }) %>
-
                             </div>
-                            
                         </div>
                     </div>
                 </div>

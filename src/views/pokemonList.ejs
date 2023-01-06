@@ -7,7 +7,9 @@
         <hr> 
     </header>
     <main class="container bg-light mt-5">
-        <h5 class="text-end badge bg-primary text-wrap">Total pokemons: <%= data.results.length %></h5>
+        <div class="div-container">
+            <h5 class="text-end badge bg-primary text-wrap">Total pokemons: <%= data.results.length %></h5>
+        </div>
         <section class="row">
             <% for (let i = 0; i < data.results.length; i++) { %>
                 <% let pokemonIndex = i+1; %>
