@@ -2,7 +2,7 @@
 <html lang="en">
 <%- include("partials/head.ejs") %>
 
-    <body class="">
+    <body class="bg-light">
         <main class="">
             <header>
                 <%- include("./partials/navbar") %>
@@ -135,9 +135,10 @@
                         </div>
                         <div class="mt-4">
                             <h3 class="text-center">Base stats</h3>
-                            <% for (let i=0;i < pokemon.stats.length; i++) { %>
+                            
                                 <table class="table">
                                     <tbody>
+                                        <% for (let i=0;i < pokemon.stats.length; i++) { %>
                                         <tr>
                                             <th class="text-right table-th th-stats">
                                                 <span>
@@ -148,12 +149,13 @@
                                                 <%= pokemon.stats[i].base_stat %>
                                             </td>
                                             <td><progress value="<%= pokemon.stats[i].base_stat %>"
-                                                    max="120"></progress>
+                                                    max="200"></progress>
                                             </td>
                                         </tr>
+                                        <% } %>
                                     </tbody>
                                 </table>
-                                <% } %>
+                                
                         </div>
                     </div>
                     <div class="d-flex flex-column w-25 p-2 flex-grow-1">
@@ -282,6 +284,7 @@
                 </div> -->
             </section>
         </main>
+        <%- include("./partials/footer") %>
     </body>
 
 </html>
