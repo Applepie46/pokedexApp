@@ -1,0 +1,290 @@
+<!DOCTYPE html>
+<html lang="en">
+<%- include("partials/head.ejs") %>
+
+    <body class="bg-light">
+        <main class="">
+            <header>
+                <%- include("./partials/navbar") %>
+                    <hr>
+            </header>
+            <section class="container mt-5 sectionCss">
+                <div class="d-flex flex-wrap w-100 section-div-1">
+                    <div class="d-flex flex-column align-items-center flex-grow-1">
+                        <div>
+                            <h1 class="text-center display-1">
+                                <%= pokemon.name %>
+                            </h1>
+                        </div>
+                        <% if (pokemon.sprites.front_default) { %>
+                            <img class="detail-img mw-100" src="<%= pokemon.sprites.front_default %>"
+                            alt="<%= pokemon.species.name %>">
+                        <% } else { %>
+                            <div>
+                                <h3 class="text-center text-muted display-1">
+                                    Sorry we don´t have the front image of this pokemon yet
+                                </h3>
+                            </div>
+                        <% } %>
+                        
+                        <% if (pokemon.sprites.back_default) { %>
+                            <img class="detail-img mw-100" src="<%= pokemon.sprites.back_default %>"
+                            alt="<%= pokemon.species.name %>">
+                        <% } else { %>
+                            <div class="p-5 h-100 text-center">
+                                <h7 class="text-center text-muted">
+                                    Sorry we don´t have the back image of this pokemon yet
+                                </h7>
+                            </div>
+                        <% } %>        
+                    </div>
+                    <div class="d-flex flex-column p-2 flex-grow-5">
+                        <div class="h-auto w-100">
+                            <h3 class="text-center">Pokedex data</h3>
+                            <table class="table">
+                                <tbody>
+                                    <tr class="border-bottom">
+                                        <th>nº</th>
+                                        <td>
+                                            <span>
+                                                <%= pokemon.id %>
+                                            </span>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <th>Type</th>
+                                        <td class="tdTypes">
+                                            <% for (let i=0;i < pokemon.types.length; i++) { %>
+                                                <span class="typesSpan">
+                                                    <%= pokemon.types[i].type.name %>
+                                                </span>
+                                                <% } %>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <th>Height</th>
+                                        <td>
+                                            <span>
+                                                <%= pokemon.height %> m
+                                            </span>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <th>Weight</th>
+                                        <td>
+                                            <span>
+                                                <%= pokemon.weight %> kg
+                                            </span>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <th>abilities</th>
+                                        <td>
+                                            <% for (let i=0;i < pokemon.abilities.length; i++) { %>
+                                                <span>
+                                                    <%= pokemon.abilities[i].ability.name %>
+                                                </span>
+                                                <br>
+                                                <% } %>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <th>Habitat</th>
+                                        <td>
+                                            <% if (species.habitat === null) { %>
+                                                <span>
+                                                    Oops no info yet
+                                                </span>
+                                            <% } else { %>
+                                                <span>
+                                                    <%= species.habitat.name %>
+                                                </span>
+                                            <% } %>    
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <th>Legendary</th>
+                                        <td>
+                                            <% if (species.is_legendary == true) { %>
+                                                <span>
+                                                    Yes
+                                                </span>
+                                            <% } else { %>
+                                                <span>
+                                                    No
+                                                </span>  
+                                            <% } %>      
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <th>Mythic</th>
+                                        <td>
+                                            <% if (species.is_mythical == true) { %>
+                                                <span>
+                                                    Yes
+                                                </span>
+                                            <% } else { %>
+                                                <span>
+                                                    No
+                                                </span>  
+                                            <% } %>      
+                                        </td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                        <div class="mt-4">
+                            <h3 class="text-center">Base stats</h3>
+                            
+                                <table class="table">
+                                    <tbody>
+                                        <% for (let i=0;i < pokemon.stats.length; i++) { %>
+                                        <tr>
+                                            <th class="text-right table-th th-stats">
+                                                <span>
+                                                    <%= pokemon.stats[i].stat.name %>
+                                                </span>
+                                            </th>
+                                            <td>
+                                                <%= pokemon.stats[i].base_stat %>
+                                            </td>
+                                            <td><progress value="<%= pokemon.stats[i].base_stat %>"
+                                                    max="200"></progress>
+                                            </td>
+                                        </tr>
+                                        <% } %>
+                                    </tbody>
+                                </table>
+                                
+                        </div>
+                    </div>
+                    <div class="d-flex flex-column w-25 p-2 flex-grow-1">
+                        <div class="w-100">
+                            <h3 class="text-center">Training</h3>
+                            <table class="table">
+                                <tbody>
+                                    <tr class="border-botton">
+                                        <th class="table-th">Base exp</th>
+                                        <td>
+                                            
+                                                <% if (pokemon.base_experience == null) { %>
+                                                    <span>
+                                                        Oops no info yet
+                                                    </span>
+                                                <% } else { %> 
+                                                    <span>
+                                                        <%= pokemon.base_experience %>
+                                                    </span>
+                                                <% } %>  
+                                            
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <th>Base happines</th>
+                                        <td>
+                                            <span>
+                                                <%= species.base_happiness %> %
+                                            </span>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <th>Capture rate</th>
+                                        <td>
+                                            <span>
+                                                <%= species.capture_rate %> %
+                                            </span>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <th>Hatch counter</th>
+                                        <td>
+                                            <span>
+                                                <%= species.hatch_counter %>
+                                            </span>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <th>Gender rate</th>
+                                        <td>
+                                            <span>
+                                                <%= species.gender_rate %>
+                                            </span>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <th>Growth rate</th>
+                                        <td>
+                                            <span>
+                                                <%= species.growth_rate.name %>
+                                            </span>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <th>Shape</th>
+                                        <td>
+                                            <span>
+                                                <%= species.shape.name %>
+                                            </span>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <th>form change</th>
+                                        <td>
+                                            <% if (species.form_switchable == true) { %>
+                                                <span>
+                                                    Yes
+                                                </span>
+                                            <% } else { %>
+                                                <span>
+                                                    No
+                                                </span>  
+                                            <% } %>      
+                                        </td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                        <div class="card mt-5 border-danger bg-danger p-3 text-light">
+                            <h3 class="text-center">Some <%= pokemon.name %> facts</h3>
+                            <div class="p-4">
+                                <% let factsArray = []; %>
+                                <% for(let i = 0; i < species.flavor_text_entries.length; i++) { %>
+                                    <% if (species.flavor_text_entries[i].flavor_text === undefined) { %>
+                                        <% factsArray.push("") %>
+                                    <% } else { %> 
+                                        <% factsArray.push(species.flavor_text_entries[i].flavor_text) %>
+                                    <% } %>         
+                                <% } %>
+                                
+                                <% factsArray.slice(0, 3).forEach(text => { %>
+                                    <p><i class="fa-solid fa-arrow-right"></i> <%= text %></p>
+                                <% }) %>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!--<div>
+                    <div class="mt-4">
+                        <h3 class="text-center">Game index</h3>
+                        <% for (let i=0;i < pokemon.game_indices.length; i++) { %>
+                            <table class="table">
+                                <tbody>
+                                    <tr>
+                                        <th class="text-right table-th">
+                                            <%= pokemon.game_indices[i].version.name %>
+                                        </th>
+                                        <td>
+                                            <%= pokemon.game_indices[i].game_index %>
+                                        </td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                            <% } %>
+                    </div>
+                </div> -->
+            </section>
+        </main>
+        <%- include("./partials/footer") %>
+    </body>
+
+</html>
